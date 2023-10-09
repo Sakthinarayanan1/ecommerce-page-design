@@ -1,0 +1,113 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content=
+    "width=device-width, initial-scale=1.0">
+    <title>Digital Clock</title>
+<style>
+    body{
+        background-color: #cb00cb;
+    }
+    #clock {
+      font-size: 175px;
+      width: 900px;
+      margin: 200px;
+      text-align: center;
+      border: 5px solid whitesmoke;
+      background-color: black;
+      border-radius: 20px;
+      color:whitesmoke;
+}
+#clock2{
+      font-size: 175px;
+      width: 900px;
+      margin: 200px;
+      text-align: center;
+      border: 5px solid whitesmoke;
+      background-color: black;
+      border-radius: 20px;
+      color: whitesmoke;
+}
+h1{
+    font-family: 'Courier New', Courier, monospace;
+    color: whitesmoke;
+    margin: 10px;
+   align-content: center;
+   pa
+}
+</style>
+</head>
+<body>
+    <h1>clock for railway time</h1>
+    <div id="clock">8:10:45</div>
+
+    <h1>clock for normal time</h1>
+    <div id="clock2">8:10:45</div>
+
+ 
+    <script>
+        // code for railway time
+        
+setInterval(showTime, 1000);
+function showTime() {
+    let time = new Date();
+    let hour = time.getHours();
+    let min = time.getMinutes();
+    let sec = time.getSeconds();
+    
+ 
+    if (hour >=12 && hour<24) {
+        hour =+hour;
+        am_pm = "PM";
+    }
+    if (hour == 0) {
+        hr = 12;
+        am_pm = "AM";
+    }
+ 
+    hour = hour < 10 ? "0" + hour : hour;
+    min = min < 10 ? "0" + min : min;
+    sec = sec < 10 ? "0" + sec : sec;
+ 
+    let currentTime = hour + ":"
+            + min + ":" + sec + am_pm;
+ 
+    document.getElementById("clock")
+            .innerHTML = currentTime;
+}
+showTime();
+
+// code for normal time
+setInterval(showTime2, 1000);
+function showTime2() {
+    let time= new Date();
+    let hour = time.getHours();
+    let min= time.getMinutes();
+    let sec= time.getSeconds();
+ 
+ 
+    if (hour>12) {
+        hour-=12;
+        am_pm = "PM";
+    }
+    if (hour == 0) {
+        hr= 12;
+        am_pm = "AM";
+    }
+ 
+    hour = hour < 10 ? "0" + hour : hour;
+    min= min < 10 ? "0" + min : min;
+    sec= sec< 10 ? "0" + sec: sec;
+ 
+    let currentTime = hour + ":"
+            + min + ":" + sec + am_pm;
+ 
+    document.getElementById("clock2")
+            .innerHTML = currentTime;
+}
+showTime2();
+    </script>
+</body>
+</html>
